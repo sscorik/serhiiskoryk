@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Serhii Skoryk</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<style>
+
+
+
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js?_v=20230929114543"></script>
+	<script>
+		if (document.querySelector("#preloader")) {
+			Pace.on('start', function() {
+				var preloaderPercent = document.querySelector('.preloader-percent');
+				if (preloaderPercent) {
+					preloaderPercent.textContent = '0%';
+				}
+			});
+
+			// Pace.on('progress', function(progress) {
+			//   var preloaderPercent = document.querySelector('.preloader-percent');
+			//   if (preloaderPercent) {
+			//   var currentProgress = Math.round(progress /100 * 100);
+			//   preloaderPercent.textContent = currentProgress.toFixed(0) + '%';
+			//   }
+			// });
+
+			Pace.on('done', function() {
+				var preloaderPercent = document.querySelector('.preloader-percent');
+				if (preloaderPercent) {
+					preloaderPercent.textContent = '100%';
+				}
+			});
+			Pace.on('done', function() {
+				var preloaderPercent = document.querySelector('.preloader');
+				setTimeout(() => {
+					preloaderPercent.classList.add('done');
+				}, 500);
+				setTimeout(() => {
+					document.documentElement.classList.add("loaded")
+				}, 1200);
+			});
+		}
+	</script>
+	<link rel="stylesheet" href="css/style.min.css?_v=20230929114543">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="bodyId">
+	<div class="wrapper" data-scroll-container>
+		<main id="target" class="page">
+
+			<div id="scroller">
+
+				<header class="header" data-scroll data-scroll-sticky data-scroll-target="#scroller">
+					<div class="header__container">
+						<a class="logo-link" href="#">
+							<svg data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 20">
+								<path class="cls-1" d="M3.5,5.28c0-1.65,1.42-2.71,3.75-2.71s3.95,1.31,4.14,3.32h2.81C13.96,2.32,11.23,0,7.26,0S.62,2.15,.62,5.28c0,7.21,11.03,4.38,11.03,9.08,0,2.12-1.78,3.07-4.23,3.07-2.75,0-4.39-1.62-4.61-4.13H0c.22,4.05,3.03,6.7,7.42,6.7s7.17-2.09,7.17-5.67C14.59,6.87,3.5,10.03,3.5,5.28Zm16.99,3.54l-4.89,10.97h2.37l4.91-10.97h-2.39Z" />
+								<path class="logo-hide" d="M23.99,13.44h1.87c.28,2.93,2.2,4.83,5.48,4.83,2.95,0,5.12-1.09,5.12-3.72,0-5.39-11.76-2.65-11.76-9.47,0-3.05,2.67-5.09,6.56-5.09s6.45,2.23,6.78,5.67h-1.87c-.25-2.37-2.11-3.94-4.92-3.94s-4.64,1.28-4.64,3.35c0,5.28,11.81,2.23,11.81,9.47,0,3.52-3.08,5.45-7.09,5.45-4.33,0-7.06-2.59-7.33-6.56Z" />
+								<path class="logo-hide" d="M40.75,10C40.75,3.21,45.28,0,50.01,0,54.06,0,57.48,2.6,58.01,6.12h-1.95c-.36-2.51-2.95-4.38-6.06-4.38-4.31,0-7.31,2.93-7.31,8.27s3,8.27,7.31,8.27c3.2,0,5.78-1.87,6.06-4.39h1.95c-.45,3.52-3.86,6.12-8.01,6.12-4.75,0-9.26-3.21-9.26-10Z" />
+								<path class="logo-hide" d="M60.23,10C60.23,4.25,64.24,0,69.66,0s9.45,4.24,9.45,10-4.02,10-9.45,10-9.42-4.24-9.42-10Zm16.93,0c0-4.75-3.2-8.27-7.5-8.27s-7.48,3.52-7.48,8.27,3.2,8.27,7.48,8.27,7.5-3.52,7.5-8.27Z" />
+								<path class="logo-hide" d="M95.15,15.08l.28,4.69h-1.75l-.28-4.69c-.11-2.04-1.42-3.52-3.39-3.52h-5.7v8.22h-1.86V.23h7.14c3.75,0,6.09,2.23,6.09,5.61,0,2.21-1.28,3.8-3.2,4.69,1.59,.84,2.57,2.48,2.68,4.55Zm-10.84-5.25h5.34c2.97,0,4.06-1.93,4.06-3.99s-1.08-3.88-4.06-3.88h-5.34v7.88Z" />
+								<path class="logo-hide" d="M104.23,11.56L97.29,.22h2.2l5.7,9.52L110.85,.22h2.22l-6.98,11.35v8.22h-1.86V11.56Z" />
+								<path class="logo-hide" d="M120.1,9.42l-2.89,2.93v7.43h-1.9V.23h1.9V9.83L126.72,.23h2.39l-7.73,7.88,8.62,11.68h-2.17l-7.73-10.36Z" />
+							</svg>
+						</a>
+						<nav class="nav">
+							<ul>
+								<li>
+									<a href="#">
+										<span>Works</span>
+										<span class="nav-item-shift">Works</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span>Services</span>
+										<span class="nav-item-shift">Services</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span>About (CV)</span>
+										<span class="nav-item-shift">About (CV)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span>Contacts</span>
+										<span class="nav-item-shift">Contacts</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<button id="navToggle" class="humburger-wrap">
+							<div id="humburger" class="humburger">
+								<img class="humburger__icon humburger__icon_static" src="img/svg/humburger.svg">
+								<img class="humburger__icon humburger__icon_close" src="img/svg/humburger_close.svg">
+							</div>
+						</button>
+					</div>
+				</header>
+				<div class="hide-nav-overlay" data-scroll data-scroll-sticky data-scroll-target="#scroller">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+						<path class="nav-change-path" d="M0 2S175 1 500 1s500 1 500 1V0H0Z" />
+
+						<!-- <path class="nav-change-path" d="M1000,1000H407l27.1-47.1c76.9-133.7,70.1-299.9-17.9-426.6c-1.5-2.2-3-4.4-4.5-6.6c-0.9-1.4-1.8-2.8-2.7-4.2
+      c-58.4-91.5-70-205.3-33.1-307.4L451,0h549V1000z"/> -->
+
+
+						<!-- <path class="nav-change-path" d="M1000,1000H0v-47.1C0,953,0,528,0,528c-1.5-2.2,1.5-7.8,0-10c-0.9-1.4,0.9-11.6,0-13V0h451h549V1000z"/> -->
+
+					</svg>
+				</div>
+				<div class="hide-nav" data-scroll data-scroll-sticky data-scroll-target="#scroller">
+					<div class="hide-nav__prime">
+						<div class="hide-nav__socials">
+							<ul>
+								<li>
+									<a href="#">
+
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="hide-nav__container">
+							<ul class="hide-nav__list">
+								<li class="hide-nav__item">
+									<a href="#">
+										<span>Works</span>
+										<span class="nav-item-shift">Works</span>
+										<div class="nav-item-overlay"></div>
+									</a>
+								</li>
+								<li class="hide-nav__item">
+									<a href="#">
+										<span>Services</span>
+										<span class="nav-item-shift">Services</span>
+										<div class="nav-item-overlay"></div>
+									</a>
+								</li>
+								<li class="hide-nav__item">
+									<a href="#">
+										<span>About -CV-</span>
+										<span class="nav-item-shift">About -CV-</span>
+										<div class="nav-item-overlay"></div>
+									</a>
+								</li>
+								<li class="hide-nav__item">
+									<a href="#">
+										<span>Contacts</span>
+										<span class="nav-item-shift">Contacts</span>
+										<div class="nav-item-overlay"></div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<section class="prime">
+					<div class="container">
+						<h1>Hi, my name Is Serhii. <br>I am digital designer & <br>Front-end developer <br>from Kyiv.
+						</h1>
+						<p>Experience a Showcase of Innovative Digital Design Solutions, Pushing the Boundaries of Creativity</p>
+					</div>
+					<div class="container_full">
+						<button class="prime__contact-button">
+							<img id="contactText" src="img/svg/slogan.svg">
+							<span>Let's talk</span>
+						</button>
+						<div class="cases-prev">
+							<picture><source srcset="img/cases-prev.webp" type="image/webp"><img id="primeCase" src="img/cases-prev.jpg"></picture>
+						</div>
+					</div>
+				</section>
+				<section class="horizontal cases">
+					<div class="pin-wrap">
+						<div class="animation-wrap to-right">
+							<div class="item ">
+
+								<!-- <div class="container">
+										<div class="row"> -->
+								<div class="cases__info half-block">
+									<div class="cases__info-wrap">
+										<h2>Recent Projects</h2>
+										<p class="undertitle">Experience a Showcase of Innovative Digital Design
+											Solutions, Pushing the Boundaries of Creativity</p>
+										<div class="button-row">
+											<a href="cases.html" class="button">
+												<span>
+													Check all
+													<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white" />
+													</svg>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<img class="cases__item-tag" src="img/svg/circle-web-design.svg">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-1.webp" type="image/webp"><img src="img/cases/prev/case-1.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>BestRest</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<img class="cases__item-tag" src="img/svg/circle-web-design.svg">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-2.webp" type="image/webp"><img src="img/cases/prev/case-2.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>Decentramind</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<img class="cases__item-tag" src="img/svg/circle-web-design.svg">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-3.webp" type="image/webp"><img src="img/cases/prev/case-3.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>Morgana</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<img class="cases__item-tag" src="img/svg/circle-web-design.svg">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-4.webp" type="image/webp"><img src="img/cases/prev/case-4.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>ExtraChain</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<img class="cases__item-tag" src="img/svg/circle-web-design.svg">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-1.webp" type="image/webp"><img src="img/cases/prev/case-1.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>BestRest</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap half-block">
+									<a href="#" class="case-item">
+										<div class="case-item__img">
+											<picture><source srcset="img/cases/prev/case-2.webp" type="image/webp"><img src="img/cases/prev/case-2.jpg"></picture>
+										</div>
+
+										<div class="case-item__info">
+											<h3>Decentramind</h3>
+											<p>Find the best place to rest while traveling</p>
+										</div>
+									</a>
+								</div>
+								<div class="cases__item-wrap cases__item-wrap_action half-block">
+
+									<a href="#" class="case-item case-item_action">
+										<img class="glass-img" src="img/video/cube.gif">
+										<h3>Your<br> project<br> here</h3>
+									</a>
+								</div>
+								<div class="cases__item-wrap cases__item-wrap_action half-block">
+									<a href="#" class="case-item case-item_action">
+										<img class="glass-img" src="img/video/triangle.gif">
+										<h3>See<br> all cases</h3>
+										<img class="all-arrow" src="img/svg/arrow-big.svg">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="fake-wrap">
+					<div class="fake" data-scroll data-scroll-sticky data-scroll-target="#scroller">
+						<picture><source srcset="img/3d-logo.webp" type="image/webp"><img class="bg-logo" src="img/3d-logo.png"></picture>
+					</div>
+				</section>
+				<section class="services section">
+
+					<div class="container">
+						<div class="section__title">
+							<h2>Directions <br>of my work</h2>
+							<p class="undertitle">Prototyping and website design development. Emphasis on usability and eye-pleasinginterface</p>
+
+						</div>
+						<div class="services__wrap">
+
+							<a href="#" class="services__item services__item_left-slide">
+								<div class="services__clip_hover">
+									<div class="services__text">
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+									</div>
+								</div>
+								<div class="services__clip">
+									<div class="services__text">
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+										<span>Ux/Ui Design</span>
+									</div>
+								</div>
+								<div class="services__text under-text">
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+									<span>Ux/Ui Design</span>
+								</div>
+							</a>
+
+
+							<a href="#" class="services__item services__item_right-slide">
+								<div class="services__clip_hover">
+									<div class="services__text">
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+									</div>
+								</div>
+								<div class="services__clip">
+									<div class="services__text">
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+										<span>Frontend development</span>
+									</div>
+								</div>
+								<div class="services__text under-text">
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+									<span>Frontend development</span>
+								</div>
+							</a>
+
+							<a href="#" class="services__item services__item_left-slide">
+								<div class="services__clip_hover">
+									<div class="services__text">
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+									</div>
+								</div>
+								<div class="services__clip">
+									<div class="services__text">
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+										<span>Out-of-home ADV</span>
+									</div>
+								</div>
+								<div class="services__text under-text">
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+									<span>Out-of-home ADV</span>
+								</div>
+							</a>
+
+							<a href="#" class="services__item services__item_right-slide">
+								<div class="services__clip_hover">
+									<div class="services__text">
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+									</div>
+								</div>
+								<div class="services__clip">
+									<div class="services__text">
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+										<span>Web Banners Design</span>
+									</div>
+								</div>
+								<div class="services__text under-text">
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+									<span>Web Banners Design</span>
+								</div>
+							</a>
+
+							<a href="#" class="services__item services__item_left-slide">
+								<div class="services__clip_hover">
+									<div class="services__text">
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+									</div>
+								</div>
+								<div class="services__clip">
+									<div class="services__text">
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+										<span>Polygraphic Design</span>
+									</div>
+								</div>
+								<div class="services__text under-text">
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+									<span>Polygraphic Design</span>
+								</div>
+							</a>
+
+
+						</div>
+					</div>
+				</section>
+
+
+				<section class="about section">
+					<div class="container">
+						<div class="row">
+							<div class="about__title-wrap">
+								<h2>A little <br>about me</h2>
+								<p class="text-big">Hi. My name is Serhii. I am a Digital Designer from Kyiv. I have
+									been working in the field of design for more than 9 years.</p>
+							</div>
+
+							<div data-scroll data-scroll-speed="2" class="about__info-wrap">
+								<picture><source srcset="img/about/photo.webp" type="image/webp"><img data-scroll data-scroll-speed="1.5" class="about__photo" src="img/about/photo.jpg"></picture>
+								<div data-scroll data-scroll-speed="0.2" class="about__numbers about__numbers_years">
+									<span>9</span>
+									<span>years</span>
+								</div>
+								<div data-scroll data-scroll-speed="-0.8" class="about__numbers about__numbers_projects">
+									<span>>50</span>
+									<span>projects</span>
+								</div>
+								<p class="undertitle">I started working with website banners and print design, but over
+									time I became interested in creating beautifully designed and intuitive web
+									interfaces, as well as website layout.</p>
+								<p>During this time I have successfully worked on a large number of interesting and
+									versatile projects.</p>
+								<p>Today I work as a freelancer and work remotely with several companies on an ongoing
+									basis.</p>
+
+								<div class="button-row">
+									<a href="cases.html" class="button">
+										<span>
+											More about me
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white" />
+											</svg>
+										</span>
+									</a>
+									<a href="cases.html" class="button">
+										<span>
+											Download CV
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white" />
+											</svg>
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="video">
+					<div class="container_full">
+						<div class="video__wrapper">
+							<video data-scroll data-scroll-speed="-4" style="width:100%;max-height:100%" autoplay muted loop>
+								<source src="img/video/logo.mp4" type="video/mp4">Your browser does not support the video tag.
+							</video>
+						</div>
+					</div>
+
+				</section>
+				<section class="section contact">
+					<div class="container">
+						<h2>Just say hello. <br>And lets start Work</h2>
+						<div class="contact__group">
+							<div data-scroll data-scroll-speed="-2" class="contact__links">
+								<a href="tel:+380938168814" class="contact__link">+38 (093) 816 88 14</a>
+								<a href="mailto:serhiiscoryk@gmail.com" class="contact__link">serhiiscoryk@gmail.com</a>
+							</div>
+							<button data-scroll data-scroll-speed="3" class="contact__contact-button">
+								<img id="contactText2" src="img/svg/slogan.svg">
+								<span>Say hello!</span>
+							</button>
+							<div data-scroll data-scroll-speed="-2" class="contact__socials">
+								<a href="">
+									<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M38.208 7.58297C40.9131 7.59105 43.5051 8.66924 45.4179 10.5821C47.3308 12.4949 48.409 15.0869 48.417 17.792V38.208C48.409 40.9131 47.3308 43.5051 45.4179 45.4179C43.5051 47.3308 40.9131 48.409 38.208 48.417H17.792C15.0869 48.409 12.4949 47.3308 10.5821 45.4179C8.66924 43.5051 7.59105 40.9131 7.58297 38.208V17.792C7.59105 15.0869 8.66924 12.4949 10.5821 10.5821C12.4949 8.66924 15.0869 7.59105 17.792 7.58297H38.208ZM38.208 3.5H17.792C9.93125 3.5 3.5 9.93125 3.5 17.792V38.208C3.5 46.0687 9.93125 52.5 17.792 52.5H38.208C46.0687 52.5 52.5 46.0687 52.5 38.208V17.792C52.5 9.93125 46.0687 3.5 38.208 3.5Z" fill="white" />
+										<path d="M41.2705 17.792C40.6648 17.792 40.0727 17.6124 39.569 17.2759C39.0654 16.9394 38.6729 16.4611 38.4411 15.9015C38.2093 15.3419 38.1486 14.7261 38.2668 14.1321C38.385 13.538 38.6767 12.9923 39.105 12.564C39.5333 12.1357 40.0789 11.844 40.673 11.7259C41.2671 11.6077 41.8828 11.6684 42.4424 11.9002C43.002 12.1319 43.4803 12.5245 43.8168 13.0281C44.1534 13.5317 44.333 14.1238 44.333 14.7295C44.3338 15.1319 44.2552 15.5306 44.1016 15.9025C43.948 16.2745 43.7225 16.6124 43.4379 16.897C43.1534 17.1815 42.8154 17.4071 42.4435 17.5607C42.0715 17.7143 41.6729 17.7929 41.2705 17.792Z" fill="white" />
+										<path d="M28 19.833C29.6153 19.833 31.1943 20.312 32.5374 21.2094C33.8804 22.1068 34.9272 23.3823 35.5454 24.8746C36.1635 26.3669 36.3252 28.0091 36.0101 29.5933C35.695 31.1776 34.9171 32.6328 33.775 33.775C32.6328 34.9171 31.1776 35.695 29.5933 36.0101C28.0091 36.3252 26.3669 36.1635 24.8746 35.5454C23.3823 34.9272 22.1068 33.8804 21.2094 32.5374C20.312 31.1943 19.833 29.6153 19.833 28C19.8353 25.8347 20.6965 23.7587 22.2276 22.2276C23.7587 20.6965 25.8347 19.8353 28 19.833ZM28 15.75C25.5772 15.75 23.2088 16.4684 21.1943 17.8145C19.1798 19.1605 17.6096 21.0737 16.6825 23.3121C15.7553 25.5505 15.5127 28.0136 15.9854 30.3899C16.458 32.7661 17.6247 34.9489 19.3379 36.6621C21.0511 38.3753 23.2339 39.542 25.6101 40.0146C27.9864 40.4873 30.4495 40.2447 32.6879 39.3175C34.9263 38.3904 36.8395 36.8202 38.1855 34.8057C39.5316 32.7912 40.25 30.4228 40.25 28C40.25 24.7511 38.9594 21.6353 36.6621 19.3379C34.3647 17.0406 31.2489 15.75 28 15.75Z" fill="white" />
+									</svg>
+								</a>
+								<a href="">
+									<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M37.6359 25.55C34.475 25.55 34.0375 28.7 34.0375 28.7H40.7531C40.7531 28.7 40.7969 25.55 37.6359 25.55Z" fill="white" />
+										<path d="M22.4 28.7H16.45V34.1687H22.1047C22.9578 34.1469 24.5547 33.9063 24.5547 31.5109C24.5547 28.6672 22.4 28.7 22.4 28.7Z" fill="white" />
+										<path d="M28 3.5C14.4703 3.5 3.5 14.4703 3.5 28C3.5 41.5297 14.4703 52.5 28 52.5C41.5297 52.5 52.5 41.5297 52.5 28C52.5 14.4703 41.5297 3.5 28 3.5ZM33.1625 18.55H41.5953V21.0656H33.1625V18.55ZM28.8969 31.7625C28.8969 37.9969 22.4 37.8 22.4 37.8H11.7687V17.3469H22.4C25.6375 17.3469 28.1859 19.1297 28.1859 22.7937C28.1859 26.4578 25.0687 26.6875 25.0687 26.6875C29.1812 26.6875 28.8969 31.7625 28.8969 31.7625ZM44.6687 31.4234H34.0703C34.0703 35.2188 37.6687 34.9781 37.6687 34.9781C41.0703 34.9781 40.95 32.7797 40.95 32.7797H44.5484C44.5484 38.6203 37.5484 38.2156 37.5484 38.2156C29.1594 38.2156 29.6953 30.3953 29.6953 30.3953C29.6953 30.3953 29.6844 22.5422 37.5484 22.5422C45.8281 22.5531 44.6687 31.4234 44.6687 31.4234Z" fill="white" />
+										<path d="M23.8438 23.1109C23.8438 20.9891 22.4 20.9891 22.4 20.9891H16.45V25.55H22.0281C22.9906 25.55 23.8438 25.2328 23.8438 23.1109Z" fill="white" />
+									</svg>
+								</a>
+								<a href="">
+									<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M45.3611 10.6202C43.096 8.354 40.4051 6.55823 37.4432 5.33622C34.4812 4.11422 31.3069 3.49012 28.1028 3.49987C14.6562 3.49987 3.71 14.3914 3.70453 27.7811C3.69858 32.0447 4.82245 36.2337 6.96172 39.9217L3.5 52.4999L16.4336 49.1235C20.0137 51.0629 24.0213 52.078 28.093 52.0766H28.1028C41.5483 52.0766 52.4934 41.1839 52.5 27.7953C52.5081 24.6022 51.8812 21.4393 50.6556 18.4907C49.43 15.5422 47.6303 12.8667 45.3611 10.6202V10.6202ZM28.1028 47.9783H28.0941C24.4643 47.9794 20.9006 47.008 17.7734 45.1652L17.033 44.7277L9.35812 46.7314L11.4067 39.2841L10.9244 38.5185C8.8948 35.3052 7.81949 31.5817 7.82359 27.7811C7.82359 16.6544 16.9247 7.60143 28.1105 7.60143C33.4764 7.59185 38.6264 9.71405 42.4278 13.5013C46.2291 17.2885 48.3705 22.4305 48.3809 27.7964C48.3766 38.9242 39.2798 47.9783 28.1028 47.9783ZM39.2252 32.8638C38.6159 32.5597 35.6158 31.0919 35.0602 30.8896C34.5045 30.6872 34.0944 30.5855 33.6886 31.1936C33.2828 31.8017 32.1136 33.1624 31.7581 33.5725C31.4027 33.9827 31.0472 34.0275 30.438 33.7235C29.8288 33.4194 27.8633 32.7796 25.5347 30.7124C23.7223 29.1035 22.4995 27.1172 22.1441 26.5102C21.7886 25.9031 22.1058 25.5739 22.4109 25.2721C22.6855 24.9997 23.0202 24.5633 23.3253 24.2089C23.6305 23.8546 23.7322 23.6008 23.9345 23.1961C24.1369 22.7914 24.0362 22.4371 23.8842 22.1341C23.7322 21.8311 22.5127 18.8441 22.0052 17.6289C21.5097 16.4455 21.0077 16.6063 20.6336 16.5877C20.2781 16.5702 19.868 16.5658 19.4644 16.5658C19.1558 16.5738 18.8523 16.6454 18.5726 16.776C18.293 16.9066 18.0433 17.0934 17.8391 17.3249C17.2802 17.933 15.7052 19.403 15.7052 22.3867C15.7052 25.3705 17.8927 28.258 18.1945 28.6627C18.4964 29.0674 22.493 35.1957 28.6081 37.8239C29.7436 38.3102 30.9039 38.7366 32.0841 39.1014C33.5442 39.563 34.8731 39.4985 35.9231 39.3421C37.0945 39.1682 39.5325 37.8742 40.0389 36.4567C40.5453 35.0392 40.5464 33.8252 40.3944 33.5725C40.2423 33.3199 39.8355 33.1667 39.2252 32.8638Z" fill="white" />
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<footer class="footer">
+					<div class="container">
+						<div class="footer__left half-block">
+							<span class="copyright">©2023 | Serhii Scoryk</span>
+							<span>Ukraine | Kyiv</span>
+						</div>
+						<div class="footer__right half-block">
+							<nav class="nav">
+								<ul>
+									<li>
+										<a href="#">
+											<span>Works</span>
+											<span class="nav-item-shift">Works</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span>Services</span>
+											<span class="nav-item-shift">Services</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span>About (CV)</span>
+											<span class="nav-item-shift">About (CV)</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span>Contacts</span>
+											<span class="nav-item-shift">Contacts</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</footer>
+
+			</div>
+		</main>
+	</div>
+
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426&_v=20230929114543"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js?_v=20230929114543"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/CSSRulePlugin.min.js?_v=20230929114543"></script>
+
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js?_v=20230929114543"></script>
+
+
+</body>
+
+</html>
