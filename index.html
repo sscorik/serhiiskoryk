@@ -6,12 +6,29 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="img/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	<style>
 
 
 
 	</style>
-	<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js?_v=20230929114543"></script>
+	<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js?_v=20231014155732"></script>
 	<script>
 		if (document.querySelector("#preloader")) {
 			Pace.on('start', function() {
@@ -46,7 +63,7 @@
 			});
 		}
 	</script>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230929114543">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231014155732">
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -58,7 +75,12 @@
 		<main id="target" class="page">
 
 			<div id="scroller">
-
+				<div id="cursor" class="cursor" data-scroll data-scroll-sticky data-scroll-target="#scroller">
+					<div class="cursor__cases">
+						<img class="cursor__cases_text" src="img/cursor/cases-text.svg">
+						<img class="cursor__cases_icon" src="img/cursor/cases-icon.svg">
+					</div>
+				</div>
 				<header class="header" data-scroll data-scroll-sticky data-scroll-target="#scroller">
 					<div class="header__container">
 						<a class="logo-link" href="#">
@@ -315,7 +337,7 @@
 							<p class="undertitle">Prototyping and website design development. Emphasis on usability and eye-pleasinginterface</p>
 
 						</div>
-						<div class="services__wrap">
+						<div class="services__wrap services__wrap_desk">
 
 							<a href="#" class="services__item services__item_left-slide">
 								<div class="services__clip_hover">
@@ -654,6 +676,56 @@
 							</a>
 
 
+						</div>
+						<div class="services__wrap services__wrap_xs">
+							<div class="services__row_xs">
+								<a href="#" class="services__item_xs">
+									<picture><source srcset="img/glass/glass-1.webp" type="image/webp"><img src="img/glass/glass-1.png"></picture>
+									<h3>
+										<span>Ux/ui</span>
+										<span>design
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white"></path>
+											</svg>
+										</span>
+									</h3>
+								</a>
+								<a href="#" class="services__item_xs">
+									<picture><source srcset="img/glass/glass-2.webp" type="image/webp"><img src="img/glass/glass-2.png"></picture>
+									<h3>
+										<span>Frontend</span>
+										<span>development
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white"></path>
+											</svg>
+										</span>
+									</h3>
+								</a>
+							</div>
+							<div class="services__row_xs">
+								<a href="#" class="services__item_xs">
+									<picture><source srcset="img/glass/glass-3.webp" type="image/webp"><img src="img/glass/glass-3.png"></picture>
+									<h3>
+										<span>Graphic</span>
+										<span>design
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white"></path>
+											</svg>
+										</span>
+									</h3>
+								</a>
+								<a href="#" class="services__item_xs">
+									<picture><source srcset="img/glass/glass-4.webp" type="image/webp"><img src="img/glass/glass-4.png"></picture>
+									<h3>
+										<span>3D</span>
+										<span>Design
+											<svg class="button__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path id="Union" d="M5.23472 15.3172C4.84419 15.7077 4.84419 16.3409 5.23472 16.7314C5.62524 17.1219 6.25841 17.1219 6.64893 16.7314L15.4876 7.89275L15.4692 16.7954C15.468 17.3477 15.9148 17.7963 16.4671 17.7974C17.0194 17.7986 17.468 17.3518 17.4692 16.7995L17.4925 5.51939C17.5052 5.24808 17.4079 4.97261 17.2007 4.76542C17.1006 4.66533 16.9846 4.59089 16.8608 4.5421C16.744 4.49587 16.6185 4.47159 16.4905 4.47187L5.16582 4.49625C4.61353 4.49744 4.16678 4.94612 4.16797 5.4984C4.16916 6.05069 4.61784 6.49744 5.17012 6.49625L14.0749 6.47707L5.23472 15.3172Z" fill="white"></path>
+											</svg>
+										</span>
+									</h3>
+								</a>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -800,9 +872,9 @@
 		</main>
 	</div>
 
-	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426&_v=20230929114543"></script>
-	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js?_v=20230929114543"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/CSSRulePlugin.min.js?_v=20230929114543"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426&_v=20231014155732"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js?_v=20231014155732"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/CSSRulePlugin.min.js?_v=20231014155732"></script>
 
 	<!-- <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
@@ -814,7 +886,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20230929114543"></script>
+	<script src="js/app.min.js?_v=20231014155732"></script>
 
 
 </body>

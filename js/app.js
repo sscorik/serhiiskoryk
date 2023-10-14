@@ -2174,13 +2174,6 @@ object-assign
     ScrollTrigger.clearScrollMemory("manual");
     window.addEventListener("DOMContentLoaded", (function() {
         document.querySelector(".wrapper");
-        if (window.matchMedia("(max-width: 1024px)").matches) {
-            const page = document.querySelector(".page");
-            setTimeout((() => {
-                const pageHeight = document.documentElement.scrollHeight;
-                page.style.height = pageHeight + "px";
-            }), 1e3);
-        }
         setTimeout((function() {
             window.history.scrollRestoration = "manual";
             const scroller = document.querySelector("#scroller");
@@ -2247,90 +2240,101 @@ object-assign
                     y: -700
                 });
             }
+            let mobileRight;
+            let mobileLeft;
+            if (window.innerWidth > 1024) {
+                mobileRight = 850;
+                mobileLeft = -850;
+            } else {
+                mobileRight = 200;
+                mobileLeft = -200;
+            }
             const servicesToLeftScroll = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".services",
-                    start: "top bottom",
+                    trigger: ".services__wrap",
+                    start: "10% bottom",
                     end: "bottom top",
-                    scrub: 1.4,
+                    scrub: -1,
                     markers: false
                 }
             });
             servicesToLeftScroll.to(".services__item_left-slide .services__text", {
-                x: -850
+                x: mobileLeft
             });
             const servicesToRightScroll = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".services",
+                    trigger: ".services__wrap",
                     start: "top bottom",
                     end: "bottom top",
-                    scrub: 1.4,
+                    scrub: -1,
                     markers: false
                 }
             });
             servicesToRightScroll.to(".services__item_right-slide .services__text", {
-                x: 850
+                x: mobileRight
             });
-            const rotateTextToscroll = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".prime",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                    markers: false
-                }
-            });
-            rotateTextToscroll.to("#contactText", {
-                rotation: 90
-            });
-            const transformLogoToscroll = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".prime",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                    markers: true
-                }
-            });
-            transformLogoToscroll.to(".bg-logo", {
-                right: "22%",
-                top: "20%"
-            });
-            const centeredLogoToscroll = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".cases",
-                    start: "bottom bottom",
-                    end: "bottom top",
-                    scrub: true,
-                    markers: true
-                }
-            });
-            centeredLogoToscroll.to(".bg-logo", {
-                top: "0%"
-            });
-            const sectionLogoToscroll = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".cases",
-                    start: "bottom top",
-                    scrub: true,
-                    markers: true
-                }
-            });
-            sectionLogoToscroll.to(".fake", {
-                className: "fake fake-stop"
-            });
-            const rotateTagToscroll = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".cases",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                    markers: false
-                }
-            });
-            rotateTagToscroll.to(".cases__item-tag", {
-                rotation: -250
-            });
+            if (window.innerWidth > 1024) {
+                const rotateTextToscroll = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".prime",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: false
+                    }
+                });
+                rotateTextToscroll.to("#contactText", {
+                    rotation: 90
+                });
+                const transformLogoToscroll = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".prime",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: false
+                    }
+                });
+                transformLogoToscroll.to(".bg-logo", {
+                    right: "22%",
+                    top: "20%"
+                });
+                const centeredLogoToscroll = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".cases",
+                        start: "bottom 96%",
+                        end: "bottom 2%",
+                        scrub: true,
+                        markers: false
+                    }
+                });
+                centeredLogoToscroll.to(".bg-logo", {
+                    top: "0%"
+                });
+                const sectionLogoToscroll = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".cases",
+                        start: "bottom top",
+                        scrub: true,
+                        markers: false
+                    }
+                });
+                sectionLogoToscroll.to(".fake", {
+                    className: "fake fake-stop"
+                });
+                const rotateTagToscroll = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".cases",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: false
+                    }
+                });
+                rotateTagToscroll.to(".cases__item-tag", {
+                    rotation: -250
+                });
+            }
             locoScroll.on("scroll", (instance => {
                 const scrollPosition = instance.scroll.y;
                 if (scrollPosition >= 50) document.querySelector(".header").classList.add("scrolled"); else document.querySelector(".header").classList.remove("scrolled");
@@ -2346,18 +2350,17 @@ object-assign
             function revealMenu() {
                 revealMenuItems();
                 const humburger = document.getElementById("humburger");
-                document.getElementById("scroller");
+                const bodyScroller = document.getElementById("scroller");
                 const toggleBtn = document.querySelector(".humburger");
-                const scrollBar = document.querySelector(".c-scrollbar");
                 toggleBtn.onclick = function(e) {
                     humburger.classList.toggle("humburger_active");
                     scroller.classList.toggle("scroller_blocked");
-                    if (window.matchMedia("(min-width: 1024px)").matches) if (humburger.classList.contains("humburger_active")) {
+                    if (humburger.classList.contains("humburger_active")) {
                         locoScroll.stop();
-                        scrollBar.style.display = "none";
+                        bodyScroller.style.overflow = "hidden";
                     } else {
                         locoScroll.start();
-                        scrollBar.style.display = "block";
+                        bodyScroller.style.overflow = "auto";
                     }
                     tl.reversed(!tl.reversed());
                 };
@@ -2415,9 +2418,32 @@ object-assign
                 scrub: 1,
                 markers: false
             },
-            scale: 1.2,
-            y: -270
+            scale: 1.1,
+            y: -100
         });
+    }));
+    const outer = document.getElementById("cursor");
+    document.addEventListener("mousemove", (e => {
+        let left = e.pageX;
+        let top = e.pageY;
+        outer.animate({
+            left: left - 10 + "px",
+            top: top - 10 + "px"
+        }, {
+            duration: 600,
+            fill: "forwards"
+        });
+    }));
+    const cursorLink = document.querySelectorAll(".case-item");
+    cursorLink.forEach((function(hoverLink) {
+        hoverLink.addEventListener("mouseover", (function() {
+            const cursor = document.querySelector("#cursor");
+            cursor.classList.add("cursor_cases-active");
+        }));
+        hoverLink.addEventListener("mouseleave", (function() {
+            const cursor = document.querySelector("#cursor");
+            cursor.classList.remove("cursor_cases-active");
+        }));
     }));
     window["FLS"] = true;
     isWebp();
