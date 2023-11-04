@@ -2176,12 +2176,15 @@ object-assign
         document.querySelector(".wrapper");
         setTimeout((function() {
             window.history.scrollRestoration = "manual";
-            const scroller = document.querySelector("#scroller");
+            const scroller = document.querySelector("[data-scroll-container]");
             const locoScroll = new locomotive_scroll_esm({
                 el: scroller,
                 smooth: true,
                 multiplier: .3
             });
+            new ResizeObserver((entries => {
+                locoScroll.update();
+            })).observe(document.querySelector("[data-scroll-container]"));
             locoScroll.on("scroll", ScrollTrigger.update);
             ScrollTrigger.scrollerProxy(scroller, {
                 scrollTop(value) {
@@ -2286,42 +2289,6 @@ object-assign
                 rotateTextToscroll.to("#contactText", {
                     rotation: 90
                 });
-                const transformLogoToscroll = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".prime",
-                        start: "top top",
-                        end: "bottom top",
-                        scrub: true,
-                        markers: false
-                    }
-                });
-                transformLogoToscroll.to(".bg-logo", {
-                    right: "22%",
-                    top: "20%"
-                });
-                const centeredLogoToscroll = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".cases",
-                        start: "bottom 96%",
-                        end: "bottom 2%",
-                        scrub: true,
-                        markers: false
-                    }
-                });
-                centeredLogoToscroll.to(".bg-logo", {
-                    top: "0%"
-                });
-                const sectionLogoToscroll = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".cases",
-                        start: "bottom top",
-                        scrub: true,
-                        markers: false
-                    }
-                });
-                sectionLogoToscroll.to(".fake", {
-                    className: "fake fake-stop"
-                });
                 const rotateTagToscroll = gsap.timeline({
                     scrollTrigger: {
                         trigger: ".cases",
@@ -2347,20 +2314,31 @@ object-assign
             gsap.set(".hide-nav", {
                 visibility: "hidden"
             });
+            gsap.set(".contact-modal", {
+                visibility: "hidden"
+            });
             function revealMenu() {
                 revealMenuItems();
                 const humburger = document.getElementById("humburger");
-                const bodyScroller = document.getElementById("scroller");
+                const bodyMobileScroller = document.querySelector("body");
+                const bodyDesktopScroller = document.querySelector("#scroller");
                 const toggleBtn = document.querySelector(".humburger");
                 toggleBtn.onclick = function(e) {
                     humburger.classList.toggle("humburger_active");
                     scroller.classList.toggle("scroller_blocked");
-                    if (humburger.classList.contains("humburger_active")) {
+                    if (window.innerWidth < 1024) if (humburger.classList.contains("humburger_active")) {
                         locoScroll.stop();
-                        bodyScroller.style.overflow = "hidden";
+                        bodyMobileScroller.style.overflow = "hidden";
                     } else {
                         locoScroll.start();
-                        bodyScroller.style.overflow = "auto";
+                        bodyMobileScroller.style.overflow = "auto";
+                    }
+                    if (window.innerWidth >= 1024) if (humburger.classList.contains("humburger_active")) {
+                        locoScroll.stop();
+                        bodyDesktopScroller.style.overflow = "hidden";
+                    } else {
+                        locoScroll.start();
+                        bodyDesktopScroller.style.overflow = null;
                     }
                     tl.reversed(!tl.reversed());
                 };
@@ -2398,7 +2376,90 @@ object-assign
                     }
                 }, "-=1").reverse();
             }
-        }), 1500);
+            let contactOpen = gsap.timeline({
+                pause: true
+            });
+            function revealModal() {
+                revealModalContact();
+                const bodyMobileScroller = document.querySelector("body");
+                const bodyDesktopScroller = document.querySelector("#scroller");
+                const contactModal = document.querySelector(".contact-modal");
+                const contactButton = document.querySelectorAll(".contact-modal-toggle");
+                contactButton.forEach((element => {
+                    element.onclick = function(e) {
+                        contactModal.classList.toggle("contact-modal_active");
+                        scroller.classList.toggle("scroller_blocked");
+                        if (window.innerWidth < 1024) if (contactModal.classList.contains("contact-modal_active")) {
+                            locoScroll.stop();
+                            bodyMobileScroller.style.overflow = "hidden";
+                        } else {
+                            locoScroll.start();
+                            bodyMobileScroller.style.overflow = "auto";
+                        }
+                        if (window.innerWidth >= 1024) if (contactModal.classList.contains("contact-modal_active")) {
+                            locoScroll.stop();
+                            bodyDesktopScroller.style.overflow = "hidden";
+                        } else {
+                            locoScroll.start();
+                            bodyDesktopScroller.style.overflow = null;
+                        }
+                        contactOpen.reversed(!contactOpen.reversed());
+                    };
+                }));
+            }
+            revealModal();
+            function revealModalContact() {
+                const svgStart = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+                const svgEnd = "M0, 1005S175,995,500,995s500,5,500,5V0H0Z";
+                contactOpen.to(navPath, {
+                    duration: .1,
+                    attr: {
+                        d: svgStart
+                    },
+                    ease: Power2.easeIn
+                }, "-=0.08").to(navPath, {
+                    duration: .9,
+                    attr: {
+                        d: svgEnd
+                    },
+                    ease: Power2.easeIn
+                }, "-=0.01");
+                contactOpen.to(".contact-modal", {
+                    visibility: "visible",
+                    duration: 1
+                }, "-=0.06");
+                contactOpen.to(".contact-modal__head > h3 > span", {
+                    top: 0,
+                    ease: "power3.easeOut",
+                    duration: .6
+                }, "-=1");
+                contactOpen.to(".contact-modal__head > .contact-modal-toggle", {
+                    scale: 1,
+                    ease: "power3.easeOut",
+                    duration: .6
+                }, "-=0.75");
+                contactOpen.to(".contact-modal .contact-form label", {
+                    top: 0,
+                    opacity: 1,
+                    ease: "power3.easeOut",
+                    duration: .6,
+                    stagger: {
+                        amount: "0.15"
+                    }
+                }, "-=0.5");
+                contactOpen.to(".contact-modal .contact-form .button-row", {
+                    top: 0,
+                    opacity: 1,
+                    ease: "power3.easeOut",
+                    duration: .6
+                }, "-=0.25");
+                contactOpen.to(".contact-modal .contact-modal__footer", {
+                    opacity: 1,
+                    ease: "power3.easeOut",
+                    duration: .6
+                }, "-=0.1").reverse();
+            }
+        }));
         if (window.matchMedia("(min-width: 650px)").matches) gsap.to("#primeCase", {
             scrollTrigger: {
                 trigger: ".prime",
